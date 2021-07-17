@@ -1,0 +1,81 @@
+.progress-line,
+.progress-line:before {
+  height: 3px;
+  width: 100%;
+  margin: 0;
+}
+.progress-line {
+  background-color: #b3d4fc;
+  display: -webkit-flex;
+  display: flex;
+}
+.progress-line:before {
+  background-color: #3f51b5;
+  content: "";
+  -webkit-animation: running-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: running-progress 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@-webkit-keyframes running-progress {
+  0% {
+    margin-left: 0px;
+    margin-right: 100%;
+  }
+  50% {
+    margin-left: 25%;
+    margin-right: 0%;
+  }
+  100% {
+    margin-left: 100%;
+    margin-right: 0;
+  }
+}
+@keyframes running-progress {
+  0% {
+    margin-left: 0px;
+    margin-right: 100%;
+  }
+  50% {
+    margin-left: 25%;
+    margin-right: 0%;
+  }
+  100% {
+    margin-left: 100%;
+    margin-right: 0;
+  }
+}
+
+.ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #3f51b5;
+  border-radius: 50%;
+  animation: ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #3f51b5 transparent transparent transparent;
+}
+.ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
