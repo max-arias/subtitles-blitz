@@ -12,8 +12,8 @@ const mockCtx: any = {
   },
 }
 
-describe.skip("resetPassword mutation", () => {
-  it("works correctly", async () => {
+describe("resetPassword mutation", () => {
+  it.skip("works correctly", async () => {
     expect(true).toBe(true)
 
     // Create test user
