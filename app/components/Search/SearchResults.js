@@ -12,6 +12,7 @@ const SearchResults = ({ searchData = null, suggestionData = null }) => {
     const fetchSuggestions = async (keyword) => {
       const result = await fetch(`/api/suggestions/${keyword}`)
       const data = await result.json()
+      console.log({ data })
       setSuggestions(data)
       setLoading(false)
     }

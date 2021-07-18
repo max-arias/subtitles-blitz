@@ -7,6 +7,9 @@ const config: BlitzConfig = {
       isAuthorized: simpleRolesIsAuthorized,
     }),
   ],
+  images: {
+    domains: ["image.tmdb.org", "m.media-amazon.com", "via.placeholder.com", "ia.media-imdb.com"],
+  },
   /* Uncomment this to customize the webpack config
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     // Note: we provide webpack above so you should not `require` it

@@ -10,8 +10,8 @@ const SearchBar = ({ searchCallback }) => {
   const [isDragging, setIsDragging] = useState(false)
 
   const { getRootProps, isDragActive } = useDropzone({
-    maxFiles: 1,
     onDrop: (files) => handleFileDrop(files),
+    accept: "video/*",
   })
 
   const debouncedSearchCallback = useCallback(
@@ -26,12 +26,15 @@ const SearchBar = ({ searchCallback }) => {
   }
 
   const handleFileDrop = (files) => {
-    const [file] = files
+    const names = files.map((item) => ptt.parse(item.name))
+    console.log({ names })
 
-    const res = ptt.parse(file.name)
+    // const [file] = files
 
-    setInputValue(res.title)
-    searchCallback(res)
+    // const res =
+
+    // setInputValue(res.title)
+    // searchCallback(res)
   }
 
   return (

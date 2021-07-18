@@ -6,9 +6,10 @@ import SearchResult from "./SearchResults"
 import Spinner from "../../assets/svg/spinner.svg"
 
 const Search = ({ suggestionData = null, loading = false }) => {
-  const [searchData, setSearchData] = useState(null)
+  const [searchData, setSearchData] = useState(suggestionData)
 
   const searchCallback = (search) => {
+    console.log({ search })
     setSearchData(search)
   }
 
@@ -20,7 +21,7 @@ const Search = ({ suggestionData = null, loading = false }) => {
           <Spinner className="animate-spin -ml-1 mr-3 h-10 w-10 text-purple-700" />
         </div>
       ) : (
-        <SearchResult searchData={searchData} suggestionData={suggestionData} />
+        <SearchResult searchData={searchData} />
       )}
     </div>
   )
