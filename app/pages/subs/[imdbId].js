@@ -1,8 +1,8 @@
 import React from "react"
 import { useRouter } from "next/router"
 
-import SubsPage from "../../components/SubsPage"
-import { PROVIDERS } from "../../utils/constants"
+import SubsPage from "app/components/SubsPage"
+import { PROVIDERS } from "app/utils/constants"
 
 const Subs = ({ mediaData, subtitles }) => {
   const router = useRouter()

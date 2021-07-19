@@ -1,16 +1,7 @@
-import Select from "react-select"
+import { Select } from "antd"
 
 const LanguageFilter = ({ options, setFilter }) => {
-  return (
-    <Select
-      closeMenuOnSelect={false}
-      options={options}
-      isMulti
-      isClearable
-      isSearchable
-      onChange={setFilter}
-    />
-  )
+  return <Select options={options} mode="multiple" allowClear showSearch onChange={setFilter} />
 }
 
 export default LanguageFilter

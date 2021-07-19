@@ -1,7 +1,6 @@
 import { BlitzPage } from "blitz"
 import Layout from "app/core/layouts/Layout"
-
-import Search from "../components/Search"
+import Search from "app/components/Search"
 
 const Home: BlitzPage = () => {
   return (

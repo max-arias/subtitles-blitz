@@ -1,7 +1,7 @@
-import { minutesToHours } from "../../utils/dates"
+import { minutesToHours } from "app/utils/dates"
 import Image from "next/image"
 
-import IndeterminateLoader from "../../components/Loader/Indeterminate"
+import IndeterminateLoader from "app/components/Loader/Indeterminate"
 import SubsTable from "../SubsTable"
 
 const SubsPage = ({ mediaData, subtitles, loading }) => {

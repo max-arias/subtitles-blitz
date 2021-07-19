@@ -1,19 +1,14 @@
-import redis from "redis"
-import { promisify } from "util"
-import omdb from "../../services/omdb"
+import omdb from "app/services/omdb"
+import redis from "app/services/redis"
 
 const keyword = async (req, res) => {
+  console.log({ redis })
   const {
     query: { keyword },
   } = req
 
   try {
-    // TODO: Move this
-    const client = redis.createClient()
-    const asyncGet = promisify(client.get).bind(client)
-    const asyncSet = promisify(client.set).bind(client)
-
-    const result = await asyncGet(keyword)
+    const result = await redis.asyncGet(keyword)
 
     if (result) {
       return res.json(JSON.parse(result))
@@ -22,7 +17,7 @@ const keyword = async (req, res) => {
     const data = await omdb.search(keyword)
 
     if (data?.length) {
-      await asyncSet(keyword, JSON.stringify(data))
+      await redis.asyncSet(keyword, JSON.stringify(data))
     }
 
     res.json(data)

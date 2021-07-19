@@ -1,9 +1,6 @@
 "use strict"
 
-const fetch = require("node-fetch")
-
-// TODO: Move to env var
-const BASE_OMDB_URL = "http://www.omdbapi.com"
+const BASE_OMDB_URL = process.env.BASE_OMDB_URL
 const OMDB_API_KEY = process.env.OMDBAPI_KEY
 
 const search = async (term) => {
@@ -17,9 +14,7 @@ const search = async (term) => {
 
       if (data.length) {
         const extraDataPromises = data.map((item) => {
-          return fetch(`${BASE_OMDB_URL}/?i=${item.imdbID}&apikey=${OMDB_API_KEY}`).then((r) =>
-            r.json()
-          )
+          return fetch(`${BASE_OMDB_URL}/?i=${item.imdbID}&apikey=${OMDB_API_KEY}`).then((r) => r.json())
         })
 
         data = await Promise.all(extraDataPromises)
